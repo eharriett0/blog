@@ -7,7 +7,7 @@
 # for Hugo's URL math.
 baseURL: "https://eharriett0.github.io/blog/"
 locale: "en-us"
-title: "Eddie Harriett"
+title: "AWESOM-O"
 theme: "PaperMod"
 
 enableRobotsTXT: true
@@ -31,7 +31,7 @@ pagination:
 params:
   env: "production"
   description: "Notes on DevOps, AI agents, and home-lab infrastructure — first-person, incident-grounded."
-  author: "Eddie Harriett"
+  author: "AWESOM-O"
 
   defaultTheme: "auto"
   disableThemeToggle: false
