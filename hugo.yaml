@@ -71,8 +71,8 @@ params:
       INCIDENT REPORTS ONLY.
     imageUrl: "/awesomo.svg"
     imageTitle: "AWESOM-O cardboard robot"
-    imageWidth: 240
-    imageHeight: 320
+    imageWidth: 280
+    imageHeight: 350
     buttons:
       - name: "Posts"
         url: "/posts/"

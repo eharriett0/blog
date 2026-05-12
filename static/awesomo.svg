@@ -2,8 +2,9 @@
 <!-- AWESOM-O robot — front view, matching the South Park reference photos.
      <style> kept at SVG-root level (NOT inside <defs>) so the
      <img>-embed sandbox in all browsers renders it correctly. -->
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320"
-     role="img" aria-label="AWESOM-O cardboard robot with animated control panel">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -15 280 350" width="280" height="350"
+     role="img" aria-label="AWESOM-O cardboard robot with animated control panel"
+     preserveAspectRatio="xMidYMid meet">
 
   <style>
     /* 8 LEDs chase across the panel on a 2.4s cycle, staggered 0.3s each */
