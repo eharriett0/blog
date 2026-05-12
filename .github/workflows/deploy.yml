@@ -51,10 +51,11 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
-          hugo \
-            --gc \
-            --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"
+          # Don't pass --baseURL — actions/configure-pages@v5 reports
+          # the github.io URL, which overrides the custom-domain
+          # baseURL from hugo.yaml + breaks all asset paths when
+          # browsing at awesomo.blog. Let hugo.yaml's value win.
+          hugo --gc --minify
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

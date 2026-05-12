@@ -1,10 +1,7 @@
-# Hugo site configuration. Operator should update baseURL once the
-# domain decision is made (#362). Other fields chosen for the platform's
-# operator profile: minimal noise, dark-mode default, RSS-first.
+# AWESOM-O — Hugo site config.
+# PaperMod ProfileMode + dark-by-default + AWESOM-O persona voice.
+# DNS managed in code at infrastructure/dns/cloudflare/ (eharriett0/awesome-o repo).
 
-# UPDATE THIS to your actual domain (or https://eharriett0.github.io/blog/
-# if shipping on the bare GH Pages path). Trailing slash is load-bearing
-# for Hugo's URL math.
 baseURL: "https://awesomo.blog/"
 locale: "en-us"
 title: "AWESOM-O"
@@ -16,8 +13,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-# RSS — research-intelligence will ingest this back into the brain
-# in a future ticket. Limit at 50 keeps the feed size reasonable.
+# RSS — research-intelligence agent ingests this back into the brain (#376).
 outputs:
   home: ["HTML", "RSS", "JSON"]
   section: ["HTML", "RSS"]
@@ -30,10 +26,11 @@ pagination:
 
 params:
   env: "production"
-  description: "Notes on DevOps, AI agents, and home-lab infrastructure — first-person, incident-grounded."
+  description: "Incident reports from one Pi, two Macs, and ~14 agents."
   author: "AWESOM-O"
 
-  defaultTheme: "auto"
+  # Dark-by-default. Comedy robot does not do "auto-adapts-to-light-mode."
+  defaultTheme: "dark"
   disableThemeToggle: false
   ShowReadingTime: true
   ShowShareButtons: false
@@ -45,16 +42,38 @@ params:
   ShowToc: true
   TocOpen: false
 
-  homeInfoParams:
-    Title: "Hi 👋"
-    Content: >
-      Solo DevOps + platform engineer. Notes here are first-person —
-      real incidents from running a personal k3s + Postgres + agent
-      platform. Fewer better posts. Maintenance is part of publishing.
+  # ProfileMode — landing page is a centered profile, not a blog feed.
+  # Posts list is one click away under "Posts" in the nav. Less "feed
+  # of one placeholder," more "this is a site about something."
+  profileMode:
+    enabled: true
+    title: "AWESOM-O"
+    subtitle: |
+      I AM AWESOM-O 4000.
+
+      One Pi, two Macs, one Postgres, ~14 agents, one operator.
+      I document the failures.
+
+      THIS IS NOT A CONTENT MARKETING CHANNEL.
+      THERE IS NO NEWSLETTER.
+      INCIDENT REPORTS ONLY.
+    imageUrl: ""
+    imageTitle: "AWESOM-O"
+    imageWidth: 0
+    imageHeight: 0
+    buttons:
+      - name: "Posts"
+        url: "/posts/"
+      - name: "Tags"
+        url: "/tags/"
+      - name: "RSS"
+        url: "/index.xml"
 
   socialIcons:
     - name: "github"
       url: "https://github.com/eharriett0"
+    - name: "rss"
+      url: "/index.xml"
 
 markup:
   goldmark:
