@@ -29,8 +29,9 @@ params:
   description: "Incident reports from one Pi, two Macs, and ~14 agents."
   author: "AWESOM-O"
 
-  # Dark-by-default. Comedy robot does not do "auto-adapts-to-light-mode."
-  defaultTheme: "dark"
+  # Light by default — AWESOM-O is a CARDBOARD robot. Dark mode fights
+  # the whole concept. Theme toggle stays available for night-readers.
+  defaultTheme: "light"
   disableThemeToggle: false
   ShowReadingTime: true
   ShowShareButtons: false
