@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AWESOM-O robot — front view, matching the South Park reference photos.
+     Two-tier cardboard box (narrow head on top, wider body below).
+     Cartman's parts (gray arms, peeking face) intentionally omitted —
+     this is the robot, not the kid inside.
+     LED panel chases via staggered keyframes. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 320" width="240" height="320"
+     role="img" aria-label="AWESOM-O cardboard robot with animated control panel">
+
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <style>
+      .led { animation: led-pulse 2.4s ease-in-out infinite; }
+      .led:nth-child(1) { animation-delay: 0s; }
+      .led:nth-child(2) { animation-delay: 0.3s; }
+      .led:nth-child(3) { animation-delay: 0.6s; }
+      .led:nth-child(4) { animation-delay: 0.9s; }
+      .led:nth-child(5) { animation-delay: 1.2s; }
+      .led:nth-child(6) { animation-delay: 1.5s; }
+      .led:nth-child(7) { animation-delay: 1.8s; }
+      .led:nth-child(8) { animation-delay: 2.1s; }
+
+      @keyframes led-pulse {
+        0%, 70%, 100% { opacity: 0.4; filter: none; }
+        20%, 50%      { opacity: 1; }
+      }
+
+      .antenna-tip { animation: blink 1.8s ease-in-out infinite; }
+      .antenna-tip.alt { animation-delay: 0.9s; }
+      @keyframes blink {
+        0%, 50%, 100% { opacity: 0.45; }
+        25%           { opacity: 1; }
+      }
+
+      /* Top-of-head LED squares blink slowly */
+      .top-led { animation: top-blink 3.6s ease-in-out infinite; }
+      .top-led.b { animation-delay: 1.2s; }
+      .top-led.c { animation-delay: 2.4s; }
+      @keyframes top-blink {
+        0%, 50%, 100% { opacity: 0.6; }
+        25%           { opacity: 1; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .led, .antenna-tip, .top-led { animation: none; opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <!-- ─── ANTENNAE (thin black wires with colored tips) ─── -->
+  <line x1="85"  y1="42" x2="72"  y2="6"  stroke="#1a1a1a" stroke-width="2"/>
+  <line x1="155" y1="42" x2="166" y2="4"  stroke="#1a1a1a" stroke-width="2"/>
+  <circle class="antenna-tip"     cx="72"  cy="6" r="3.5" fill="#43a047" filter="url(#glow)"/>
+  <circle class="antenna-tip alt" cx="166" cy="4" r="3.5" fill="#fbc02d" filter="url(#glow)"/>
+
+  <!-- ─── HEAD BOX ─── -->
+  <rect x="55" y="42" width="130" height="120" fill="#c89a6b" stroke="#5e3f1f" stroke-width="3" rx="3"/>
+  <!-- Corrugated seam (subtle vertical line down the center of head) -->
+  <line x1="120" y1="48" x2="120" y2="158" stroke="#a87854" stroke-width="1" opacity="0.4"/>
+
+  <!-- Top-of-head colored squares (cyan / yellow / orange — like the reference) -->
+  <rect class="top-led"   x="142" y="47" width="7" height="7" fill="#4dd0e1"/>
+  <rect class="top-led b" x="152" y="47" width="7" height="7" fill="#fbc02d"/>
+  <rect class="top-led c" x="162" y="47" width="7" height="7" fill="#fb8c00"/>
+
+  <!-- Eyes (big black ovals) -->
+  <ellipse cx="92"  cy="100" rx="20" ry="26" fill="#1a1a1a"/>
+  <ellipse cx="148" cy="100" rx="20" ry="26" fill="#1a1a1a"/>
+  <!-- Pupil shimmer -->
+  <circle cx="86"  cy="92" r="2.5" fill="#c89a6b" opacity="0.55"/>
+  <circle cx="142" cy="92" r="2.5" fill="#c89a6b" opacity="0.55"/>
+
+  <!-- Mouth grill (tight rectangular vent below eyes) -->
+  <rect x="106" y="138" width="28" height="14" fill="#4d3a23" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="108" y1="142" x2="132" y2="142" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="108" y1="146" x2="132" y2="146" stroke="#1a1a1a" stroke-width="1.5"/>
+  <line x1="108" y1="150" x2="132" y2="150" stroke="#1a1a1a" stroke-width="1.5"/>
+
+  <!-- ─── BODY BOX (wider, below) ─── -->
+  <rect x="20" y="170" width="200" height="130" fill="#c89a6b" stroke="#5e3f1f" stroke-width="3" rx="3"/>
+  <line x1="120" y1="178" x2="120" y2="295" stroke="#a87854" stroke-width="1" opacity="0.4"/>
+
+  <!-- Side coil cord (right side, black spiral) -->
+  <path d="M 220 200 q 14 6 0 12 q 14 6 0 12 q 14 6 0 12 q 14 6 0 12"
+        fill="none" stroke="#1a1a1a" stroke-width="2"/>
+
+  <!-- A.W.E.S.O.M.-O stenciled lettering -->
+  <text x="120" y="208" font-family="Helvetica, Arial, sans-serif" font-weight="800"
+        font-size="14" fill="#1a1a1a" text-anchor="middle" letter-spacing="2.5">
+    A.W.E.S.O.M.-O
+  </text>
+
+  <!-- ─── CONTROL PANEL — left to right matching the reference ─── -->
+  <g>
+    <!-- 1: yellow+red horizontal strip indicator (leftmost) -->
+    <rect class="led" x="36" y="228" width="28" height="10" fill="#fbc02d" filter="url(#glow)"/>
+    <!-- 2: red triangle/handle -->
+    <polygon class="led" points="70,238 84,222 84,238" fill="#d32f2f" stroke="#1a1a1a" stroke-width="1"/>
+    <!-- 3: green dot -->
+    <circle class="led" cx="95" cy="232" r="5" fill="#43a047" stroke="#1a1a1a" stroke-width="1" filter="url(#glow)"/>
+    <!-- 4: blue square with small "8" -->
+    <g class="led">
+      <rect x="108" y="225" width="16" height="16" fill="#1976d2" stroke="#1a1a1a" stroke-width="1.2" filter="url(#glow)"/>
+      <text x="116" y="237" font-family="monospace" font-size="10" font-weight="bold" fill="#fbc02d" text-anchor="middle">8</text>
+    </g>
+    <!-- 5: small dark vertical-bar grille -->
+    <g class="led">
+      <rect x="128" y="225" width="14" height="16" fill="#3d2818" stroke="#1a1a1a" stroke-width="1"/>
+      <line x1="131" y1="228" x2="131" y2="238" stroke="#c89a6b" stroke-width="1.5"/>
+      <line x1="135" y1="228" x2="135" y2="238" stroke="#c89a6b" stroke-width="1.5"/>
+      <line x1="139" y1="228" x2="139" y2="238" stroke="#c89a6b" stroke-width="1.5"/>
+    </g>
+    <!-- 6: short black vertical bars (counter) -->
+    <g class="led">
+      <rect x="148" y="227" width="2" height="12" fill="#1a1a1a"/>
+      <rect x="152" y="227" width="2" height="12" fill="#1a1a1a"/>
+      <rect x="156" y="227" width="2" height="12" fill="#1a1a1a"/>
+    </g>
+    <!-- 7: red switch (toggle) -->
+    <g class="led">
+      <rect x="164" y="224" width="14" height="18" fill="#666" stroke="#1a1a1a" stroke-width="1.2"/>
+      <rect x="166" y="226" width="10" height="6" fill="#d32f2f" filter="url(#glow)"/>
+    </g>
+    <!-- 8: yellow round LED rightmost -->
+    <circle class="led" cx="194" cy="232" r="5" fill="#fbc02d" filter="url(#glow)"/>
+  </g>
+
+  <!-- ─── Bottom row: gray vent panels (matches model sheet) ─── -->
+  <g fill="#9c9c9c" stroke="#1a1a1a" stroke-width="1.5">
+    <rect x="34"  y="258" width="32" height="22" rx="1"/>
+    <rect x="78"  y="263" width="14" height="14"/>
+    <rect x="96"  y="263" width="6"  height="14" fill="#1a1a1a"/>
+    <rect x="106" y="263" width="14" height="14"/>
+    <rect x="138" y="258" width="32" height="22" rx="1"/>
+    <rect x="180" y="263" width="14" height="14"/>
+  </g>
+  <!-- Vent slats on the gray boxes -->
+  <g stroke="#1a1a1a" stroke-width="1" fill="none">
+    <line x1="38"  y1="264" x2="62"  y2="264"/>
+    <line x1="38"  y1="269" x2="62"  y2="269"/>
+    <line x1="38"  y1="274" x2="62"  y2="274"/>
+    <line x1="142" y1="264" x2="166" y2="264"/>
+    <line x1="142" y1="269" x2="166" y2="269"/>
+    <line x1="142" y1="274" x2="166" y2="274"/>
+  </g>
+</svg>

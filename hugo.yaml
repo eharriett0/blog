@@ -47,7 +47,7 @@ params:
   # of one placeholder," more "this is a site about something."
   profileMode:
     enabled: true
-    title: "AWESOM-O"
+    title: "A.W.E.S.O.M.-O"
     subtitle: |
       I AM AWESOM-O 4000.
 
@@ -57,10 +57,10 @@ params:
       THIS IS NOT A CONTENT MARKETING CHANNEL.
       THERE IS NO NEWSLETTER.
       INCIDENT REPORTS ONLY.
-    imageUrl: ""
-    imageTitle: "AWESOM-O"
-    imageWidth: 0
-    imageHeight: 0
+    imageUrl: "/awesomo.svg"
+    imageTitle: "AWESOM-O cardboard robot"
+    imageWidth: 240
+    imageHeight: 320
     buttons:
       - name: "Posts"
         url: "/posts/"
