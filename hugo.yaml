@@ -5,7 +5,7 @@
 # UPDATE THIS to your actual domain (or https://eharriett0.github.io/blog/
 # if shipping on the bare GH Pages path). Trailing slash is load-bearing
 # for Hugo's URL math.
-baseURL: "https://eharriett0.github.io/blog/"
+baseURL: "https://awesomo.blog/"
 locale: "en-us"
 title: "AWESOM-O"
 theme: "PaperMod"
