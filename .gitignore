@@ -1,0 +1,18 @@
+# Hugo build output
+public/
+resources/_gen/
+
+# Hugo local cache + lock
+.hugo_build.lock
+.hugo_build/
+
+# macOS noise
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Local-only secrets (none expected here, just defensive)
+.env
+.env.local

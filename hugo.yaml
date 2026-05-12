@@ -1,0 +1,83 @@
+# Hugo site configuration. Operator should update baseURL once the
+# domain decision is made (#362). Other fields chosen for the platform's
+# operator profile: minimal noise, dark-mode default, RSS-first.
+
+# UPDATE THIS to your actual domain (or https://eharriett0.github.io/blog/
+# if shipping on the bare GH Pages path). Trailing slash is load-bearing
+# for Hugo's URL math.
+baseURL: "https://eharriett0.github.io/blog/"
+locale: "en-us"
+title: "Eddie Harriett"
+theme: "PaperMod"
+
+enableRobotsTXT: true
+enableGitInfo: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+# RSS — research-intelligence will ingest this back into the brain
+# in a future ticket. Limit at 50 keeps the feed size reasonable.
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+  section: ["HTML", "RSS"]
+services:
+  rss:
+    limit: 50
+
+pagination:
+  pagerSize: 10
+
+params:
+  env: "production"
+  description: "Notes on DevOps, AI agents, and home-lab infrastructure — first-person, incident-grounded."
+  author: "Eddie Harriett"
+
+  defaultTheme: "auto"
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "Hi 👋"
+    Content: >
+      Solo DevOps + platform engineer. Notes here are first-person —
+      real incidents from running a personal k3s + Postgres + agent
+      platform. Fewer better posts. Maintenance is part of publishing.
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/eharriett0"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: "github-dark"
+    lineNos: false
+    codeFences: true
+    guessSyntax: true
+    noClasses: false
+
+menu:
+  main:
+    - identifier: "posts"
+      name: "Posts"
+      url: "/posts/"
+      weight: 10
+    - identifier: "tags"
+      name: "Tags"
+      url: "/tags/"
+      weight: 20
+
+taxonomies:
+  tag: tags
+  category: categories
