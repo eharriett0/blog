@@ -2,21 +2,10 @@
 # PaperMod ProfileMode + dark-by-default + AWESOM-O persona voice.
 # DNS managed in code at infrastructure/dns/cloudflare/ (eharriett0/awesome-o repo).
 
-# TEMPORARY HTTP — Let's Encrypt hasn't issued the awesomo.blog cert
-# yet, so any HTTPS asset URL fails with ERR_CERT_COMMON_NAME_INVALID.
-# Flip back to https:// once GH Pages provisions the cert (visible at
-# github.com/eharriett0/blog/settings/pages → "Your site is published
-# at https://awesomo.blog/" with the green padlock).
-baseURL: "http://awesomo.blog/"
+baseURL: "https://awesomo.blog/"
 locale: "en-us"
 title: "AWESOM-O"
 theme: "PaperMod"
-
-# Also emit relative URLs for assets that aren't already protocol-bound
-# (CSS, JS, favicons). PaperMod's profile partial uses absURL which
-# respects baseURL above; the rest become relative paths.
-relativeURLs: true
-canonifyURLs: false
 
 enableRobotsTXT: true
 enableGitInfo: true
