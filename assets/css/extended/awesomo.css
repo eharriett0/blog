@@ -88,6 +88,17 @@ a:hover,
   border-bottom: none;
 }
 
+/* ─── ProfileMode avatar: no border, no rounded corners, just float ───
+   PaperMod's default border-radius: 50% would clip the antennae +
+   coil cord. We want the robot drawn as-is, sitting on the page. */
+.profile_inner img,
+.profile img {
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
 /* ─── ProfileMode buttons = LED-style boxes ─── */
 .buttons .button {
   background: var(--theme);
